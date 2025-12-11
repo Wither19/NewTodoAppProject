@@ -1,0 +1,14 @@
+{
+  "todoList": [{
+    "name": "Sample task 1",
+    "completed": false,
+    "important": false
+  }, {
+    "name": "Sample task 2",
+    "completed": true,
+    "important": true
+  }],
+  "todoListOptions": {
+
+  }
+}
