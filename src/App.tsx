@@ -10,7 +10,7 @@ function App() {
   const [todos, setTodos] = useState<TodoItem[]>(todoJSON.todoList.map((todo) => new TodoItem(todo)))
   return (
     <>
-     {todos.map((todo) => todo)}
+        {todos.map((todo) => <h3>{todo.getName()}</h3>)}
     </>
   )
 }

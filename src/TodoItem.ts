@@ -1,10 +1,10 @@
-import type { Todo } from "./types";
+import type { Todo } from "./types"
 
 export class TodoItem {
-  private name: string;
-  private completed: boolean;
-  private important: boolean;
-  private date: Date;
+  private name: string
+  private completed: boolean
+  private important: boolean
+  private date: Date
 
   constructor(t: Todo) {
     this.name = t.name
@@ -15,19 +15,19 @@ export class TodoItem {
   }
 
   public getName() {
-    return this.name;
+    return this.name
   }
 
   public getCompletedStatus() {
-    return this.completed;
+    return this.completed
   }
 
   public getImportantStatus() {
-    return this.important;
+    return this.important
   }
 
   public getDate() {
-    return this.date;
+    return this.date
   }
 
 }
