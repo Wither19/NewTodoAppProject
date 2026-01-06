@@ -11,7 +11,7 @@ function TodoListItem({ todo }: TodoListItemProps) {
         {todo.getName()}
       </h3>
       <sub>
-        {todo.getDate().getDay()}
+        {todo.getFullDate()}
       </sub>
     </div>
   )

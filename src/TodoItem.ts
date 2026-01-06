@@ -1,33 +1,34 @@
+import { TodoItemStatus } from "./types"
 import type { Todo } from "./types"
+import moment from "moment"
+import type { Moment } from "moment"
 
 export class TodoItem {
   private name: string
   private completed: boolean
-  private important: boolean
-  private date: Date
+  private status: TodoItemStatus
+  private date: Moment
 
   constructor(t: Todo) {
     this.name = t.name
-    this.completed = t.completed
-    this.important = t.important
 
-    this.date = new Date(t.date)
+    const today
+    const d = moment(t.date, "MM-DD-YYYY")
+    this.date = d;
+
+    this.status = getItemStatus(d)
   }
 
   public getName() {
     return this.name
   }
 
-  public getCompletedStatus() {
-    return this.completed
+  public getStatus() {
+    return this.status
   }
 
-  public getImportantStatus() {
-    return this.important
-  }
-
-  public getDate() {
-    return this.date
+  public getFullDate() {
+    return this.date.format("MM/DD/YYYY")
   }
 
 }

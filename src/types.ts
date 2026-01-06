@@ -7,12 +7,19 @@ export interface RenameFn {
 export interface Todo {
 	name: string
 	completed: boolean
-	important: boolean
 	date: string
 }
 
-export interface TodoListOptions {
+export enum TodoItemStatus {
+	OK = 0,
+	Important,
+	Urgent,
+	Complete
+}
 
+export interface TodoListOptions {
+	"thresholdForImportant": number,
+	"thresholdForUrgent": number
 };
 
 export interface TodoListObj {

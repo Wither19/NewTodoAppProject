@@ -2,15 +2,14 @@
   "todoList": [{
     "name": "Sample task 1",
     "completed": false,
-    "important": false,
     "date": "12-11-2025"
   }, {
     "name": "Sample task 2",
     "completed": true,
-    "important": true,
     "date": "11-4-2025"
   }],
   "todoListOptions": {
-
+    "thresholdForImportant": 5,
+    "thresholdForUrgent": 2
   }
 }

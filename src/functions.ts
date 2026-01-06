@@ -1,4 +1,6 @@
-import type { Todo } from "./types.js"
+import moment from "moment"
+import type { Todo, TodoListOptions } from "./types"
+import { TodoItemStatus } from "./types"
 
 /**
  * Converts all strings in the given array to lowercase.
@@ -84,4 +86,21 @@ export function renameLog(fn: RenameFn): Arr {
         arr[fn.index] = !!fn.taskName ? fn.taskName : "[Unnamed]"
 
         return arr
+}
+
+export function getItemStatus(completed: boolean, date: moment.Moment, options: TodoListOptions): TodoItemStatus {
+	const today = moment()
+	const dateDif = date.date()-today.date()
+	
+	let status = TodoItemStatus.OK
+
+	if (dateDif <= options.thresholdForUrgent) {
+		status = TodoItemStatus.Urgent
+	} else if (dateDif <= options.thresholdForImportant) {
+		status = TodoItemStatus.Important
+	} else if (completed) {
+		status = TodoItemStatus.Complete
+	}
+
+	return status
 }
