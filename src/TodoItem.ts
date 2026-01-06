@@ -1,5 +1,7 @@
+import todoJSON from "./todo-sample.json"
 import { TodoItemStatus } from "./types"
 import type { Todo } from "./types"
+import { getItemStatus } from "./functions"
 import moment from "moment"
 import type { Moment } from "moment"
 
@@ -11,12 +13,14 @@ export class TodoItem {
 
   constructor(t: Todo) {
     this.name = t.name
+    this.completed = t.completed
 
-    const today
     const d = moment(t.date, "MM-DD-YYYY")
     this.date = d;
 
-    this.status = getItemStatus(d)
+    const todoOptions = todoJSON.todoListOptions
+
+    this.status = getItemStatus(this.completed, d, todoOptions)
   }
 
   public getName() {

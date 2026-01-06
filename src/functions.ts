@@ -1,11 +1,11 @@
 import moment from "moment"
-import type { Todo, TodoListOptions } from "./types"
+import type { TodoListOptions } from "./types"
 import { TodoItemStatus } from "./types"
 
 /**
  * Converts all strings in the given array to lowercase.
  *
- * @param arr - An array of strings to be converted to lowercase.
+ * @param Array<any> - An array of strings to be converted to lowercase.
  * @returns An array of strings where each string is in lowercase.
  */
 export function allToLowerCase(arr: string[]) {
@@ -40,20 +40,20 @@ export function stateIndexRemove<T>(source: T[], endIndex: number): T[] {
  * @param {number} index - The index of the todo item to be updated.
  * @returns {Array<any>} - A new array with the updated todo item.
  */
-export function markTodo<T>(source: T[], index: number, check: boolean): T[] {
-        var arr: T[] = source.map((item: Todo, ind: number) => {
-                if (ind == index) {
-                        return {
-                                done: check != item.done ? check : item.done,
-                                name: item.name,
-                        }
-                } else {
-                        return item
-                }
-        })
+// export function markTodo<T>(source: T[], index: number, check: boolean): T[] {
+//         var arr: T[] = source.map((item: Todo, ind: number) => {
+//                 if (ind == index) {
+//                         return {
+//                                 done: check != item.done ? check : item.done,
+//                                 name: item.name,
+//                         }
+//                 } else {
+//                         return item
+//                 }
+//         })
 
-        return arr
-}
+//         return arr
+// }
 
 /**
  * Renames a todo item in the provided source array at the specified index.
@@ -65,12 +65,12 @@ export function markTodo<T>(source: T[], index: number, check: boolean): T[] {
  * @returns {Array<any>} A new array with the updated todo item name.
  *
  */
-export function renameTodo(fn: RenameFn): Arr {
-        var arr: Arr = [...fn.source]
-        arr[fn.index].name = !!fn.taskName ? fn.taskName : "[Unnamed]"
+// export function renameTodo(fn: RenameFn): Array<any> {
+//         var arr: Array<any> = [...fn.source]
+//         arr[fn.index].name = !!fn.taskName ? fn.taskName : "[Unnamed]"
 
-        return arr
-}
+//         return arr
+// }
 
 /**
  * Renames a task in the provided array at the specified index.
@@ -81,12 +81,12 @@ export function renameTodo(fn: RenameFn): Arr {
  * @param {string | null} taskName - The new name for the task, or null to assign a default name.
  * @returns {Array<any>} A new array with the updated task name.
  */
-export function renameLog(fn: RenameFn): Arr {
-        var arr: Arr = [...fn.source]
-        arr[fn.index] = !!fn.taskName ? fn.taskName : "[Unnamed]"
+// export function renameLog(fn: RenameFn): Array<any> {
+//         var arr: Array<any> = [...fn.source]
+//         arr[fn.index] = !!fn.taskName ? fn.taskName : "[Unnamed]"
 
-        return arr
-}
+//         return arr
+// }
 
 export function getItemStatus(completed: boolean, date: moment.Moment, options: TodoListOptions): TodoItemStatus {
 	const today = moment()
@@ -95,12 +95,14 @@ export function getItemStatus(completed: boolean, date: moment.Moment, options: 
 	let status = TodoItemStatus.OK
 
 	if (dateDif <= options.thresholdForUrgent) {
-		status = TodoItemStatus.Urgent
+		status = TodoItemStatus.URGENT
 	} else if (dateDif <= options.thresholdForImportant) {
-		status = TodoItemStatus.Important
+		status = TodoItemStatus.IMPORTANT
 	} else if (completed) {
-		status = TodoItemStatus.Complete
-	}
+		status = TodoItemStatus.COMPLETE
+	} else if (dateDif < 0) {
+                status = TodoItemStatus.LATE
+        }
 
 	return status
 }

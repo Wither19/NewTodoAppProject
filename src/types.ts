@@ -11,10 +11,11 @@ export interface Todo {
 }
 
 export enum TodoItemStatus {
-	OK = 0,
-	Important,
-	Urgent,
-	Complete
+	OK = "ok",
+	IMPORTANT = "important",
+	URGENT = "urgent",
+	COMPLETE = "complete",
+	LATE = "late"
 }
 
 export interface TodoListOptions {

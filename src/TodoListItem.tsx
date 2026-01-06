@@ -7,12 +7,8 @@ type TodoListItemProps = {
 function TodoListItem({ todo }: TodoListItemProps) {
   return (
     <div>
-      <h3 key={todo.getName()}>
-        {todo.getName()}
-      </h3>
-      <sub>
-        {todo.getFullDate()}
-      </sub>
+      <h3 key={todo.getName()}>{todo.getName()}</h3>
+      <sub>{todo.getFullDate()}</sub>
     </div>
   )
 }
