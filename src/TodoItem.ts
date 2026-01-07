@@ -1,5 +1,5 @@
 import todoJSON from "./todo-sample.json"
-import { TodoItemStatus } from "./types"
+import { TodoItemStatus } from "./enums"
 import type { Todo } from "./types"
 import { getItemStatus } from "./functions"
 import moment from "moment"

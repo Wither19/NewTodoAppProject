@@ -1,6 +1,6 @@
 import moment from "moment"
 import type { TodoListOptions } from "./types"
-import { TodoItemStatus } from "./types"
+import { TodoItemStatus } from "./enums"
 
 /**
  * Converts all strings in the given array to lowercase.

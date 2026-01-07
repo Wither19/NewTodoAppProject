@@ -24,6 +24,13 @@ $text-elems: (
 	".list-group-item"
 );
 
+$todo-status-color-mappings: (
+	"ok": "#A9A9A9",
+	"incomplete": "#FF7518",
+	"urgent": "#CC5500",
+	"complete": "#228B22"
+);
+
 @each $header in $headers {
 	#{$header} {
 		font-family: $header-font;
@@ -36,24 +43,12 @@ $text-elems: (
 	}
 }
 
-.completed {
-	text-decoration: line-through;
-	color: grey;
+@each $status, $status-color in $todo-status-color-mappings {
+	.card.todo-list-item.#{$status} {
+		border-top: 4px solid #{$status-color};
+	}
 }
 
-.cursor {
-	user-select: none;
-	cursor: pointer;
-}
-
-.list-group-item {
-	.badge {
-		opacity: 0;
-		transition: background-color 150ms, opacity 200ms;
-	}
-
-	&:hover .badge,
-	.badge:hover {
-		opacity: 1;
-	}
+.todo-list-wrapper {
+	margin: 20px 30px;
 }
