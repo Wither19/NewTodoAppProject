@@ -9,7 +9,7 @@ import { TodoItemStatus } from "./types"
  * @returns An array of strings where each string is in lowercase.
  */
 export function allToLowerCase(arr: string[]) {
-        return arr!.map((item) => item.toLowerCase())
+        return arr!.map(item => item.toLowerCase())
 }
 
 /**
@@ -19,18 +19,18 @@ export function allToLowerCase(arr: string[]) {
  * @param endIndex - The index of the element to be removed.
  * @returns A new array with the element removed.
  */
-export function stateIndexRemove<T>(source: T[], endIndex: number): T[] {
-        var arr: T[] = []
-        if (endIndex == source.length - 1) {
-                arr = source.slice(0, endIndex)
-        } else {
-                arr = [
-                        ...source.slice(0, endIndex),
-                        ...source.slice(endIndex + 1),
-                ]
-        }
-        return arr
-}
+// export function stateIndexRemove<T>(source: T[], endIndex: number): T[] {
+//         var arr: T[] = []
+//         if (endIndex == source.length - 1) {
+//                 arr = source.slice(0, endIndex)
+//         } else {
+//                 arr = [
+//                         ...source.slice(0, endIndex),
+//                         ...source.slice(endIndex + 1),
+//                 ]
+//         }
+//         return arr
+// }
 
 /**
  * Marks a todo item as done or not done based on the provided index.
