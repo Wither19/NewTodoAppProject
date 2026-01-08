@@ -12,15 +12,11 @@ function TodoListItem({ todo }: TodoListItemProps) {
   const status = todo.getStatus()
   const completed = todo.getCompletion()
 
-  const checkChangeHandle = () => {
-    todo.toggleCompletion()
-  }
-
   return (
     <Card className={`todo-list-item ${status}`} key={name}>
       <CardBody>
         <div>
-          <TodoListItemCheck checked={checkChangeHandle} completed={completed} />
+          <TodoListItemCheck checked={todo.toggleCompletion} completed={completed} />
         </div>
         <div>
           <CardTitle>{name}</CardTitle>

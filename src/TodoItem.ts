@@ -45,6 +45,7 @@ export class TodoItem {
 
   public toggleCompletion() {
     this.setCompletion(!this.completed)
+    alert(this.completed)
   }
 
 }

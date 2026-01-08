@@ -9,9 +9,7 @@ import { TodoItemStatus } from "./enums"
  * @param Array<any> - An array of strings to be converted to lowercase.
  * @returns An array of strings where each string is in lowercase.
  */
-export function allToLowerCase(arr: string[]) {
-        return arr!.map(item => item.toLowerCase())
-}
+export const allToLowerCase = (arr: string[]) => arr!.map(item => item.toLowerCase())
 
 /**
  * Removes an element from a React state array at the specified index.

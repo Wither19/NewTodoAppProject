@@ -43,9 +43,20 @@ $todo-status-color-mappings: (
 	}
 }
 
+@mixin clickable {
+	user-select: none;
+	cursor: pointer;
+}
+
+.todo-list-wrapper {
+	margin: 20px 30px;
+	display: flex;
+}
 
 .card.todo-list-item {
+	flex-basis: 25%;
 	transition: .75s border;
+	margin: 6px;
 	
 	@each $status, $status-color in $todo-status-color-mappings {
 		&.#{$status} {
@@ -54,6 +65,6 @@ $todo-status-color-mappings: (
 	}
 }
 
-.todo-list-wrapper {
-	margin: 20px 30px;
+.todo-list-item-check {
+	@include clickable;
 }
