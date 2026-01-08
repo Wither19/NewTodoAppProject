@@ -1,4 +1,4 @@
-import moment from "moment"
+import type { Moment } from "moment"
 import type { TodoListOptions } from "./types"
 import { TodoItemStatus } from "./enums"
 
@@ -88,7 +88,7 @@ export function allToLowerCase(arr: string[]) {
 //         return arr
 // }
 
-export function getItemStatus(completed: boolean, date: moment.Moment, options: TodoListOptions): TodoItemStatus {
+export function getItemStatus(completed: boolean, date: Moment, options: TodoListOptions): TodoItemStatus {
 	const today = moment()
 	const dateDif = date.date()-today.date()
 	
@@ -96,13 +96,16 @@ export function getItemStatus(completed: boolean, date: moment.Moment, options: 
 
 	if (dateDif <= options.thresholdForUrgent) {
 		status = TodoItemStatus.URGENT
-	} else if (dateDif <= options.thresholdForImportant) {
+	} 
+	if (dateDif <= options.thresholdForImportant) {
 		status = TodoItemStatus.IMPORTANT
-	} else if (completed) {
-		status = TodoItemStatus.COMPLETE
-	} else if (dateDif < 0) {
-                status = TodoItemStatus.LATE
-        }
+	}
+	if (dateDif < 0) {
+		status = TodoItemStatus.LATE
+	} 
+	if (completed) {
+		status = TodoItemStatus.COMPLETED
+	} 
 
 	return status
 }

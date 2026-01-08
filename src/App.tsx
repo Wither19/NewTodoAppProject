@@ -4,12 +4,10 @@ import { TodoItem } from "./TodoItem.ts"
 
 import TodoListWrapper from "./TodoListWrapper.tsx"
 
-// import type { Todo } from "./types.ts"
-
 import { useState } from "react"
 
 function App() {
-  const [todos, setTodos] = useState<TodoItem[]>(todoJSON.todoList.map((todo) => new TodoItem(todo)))
+  const [todos, setTodos] = useState(todoJSON.todoList.map(todo => new TodoItem(todo)))
   return (
     <>
         <TodoListWrapper list={todos} />

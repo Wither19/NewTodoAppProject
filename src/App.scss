@@ -26,9 +26,9 @@ $text-elems: (
 
 $todo-status-color-mappings: (
 	"ok": "#A9A9A9",
-	"incomplete": "#FF7518",
+	"important": "#FF7518",
 	"urgent": "#CC5500",
-	"complete": "#228B22"
+	"completed": "#228B22"
 );
 
 @each $header in $headers {
