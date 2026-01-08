@@ -25,10 +25,10 @@ $text-elems: (
 );
 
 $todo-status-color-mappings: (
-	"ok": "#A9A9A9",
-	"important": "#FF7518",
-	"urgent": "#CC5500",
-	"completed": "#228B22"
+	"ok": #A9A9A9,
+	"important": #FF7518,
+	"urgent": #CC5500,
+	"completed": #228B22
 );
 
 @each $header in $headers {
@@ -43,9 +43,14 @@ $todo-status-color-mappings: (
 	}
 }
 
-@each $status, $status-color in $todo-status-color-mappings {
-	.card.todo-list-item.#{$status} {
-		border-top: 4px solid #{$status-color};
+
+.card.todo-list-item {
+	transition: .75s border;
+	
+	@each $status, $status-color in $todo-status-color-mappings {
+		&.#{$status} {
+			border-top: 4px solid #{$status-color};
+		}
 	}
 }
 

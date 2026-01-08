@@ -1,4 +1,5 @@
 import type { Moment } from "moment"
+import moment from "moment"
 import type { TodoListOptions } from "./types"
 import { TodoItemStatus } from "./enums"
 

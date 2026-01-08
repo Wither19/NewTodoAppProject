@@ -31,8 +31,20 @@ export class TodoItem {
     return this.status
   }
 
+  public getCompletion() {
+    return this.completed;
+  }
+
   public getFullDate() {
     return this.date.format("MM/DD/YYYY")
+  }
+
+  public setCompletion(c: boolean = true) {
+    this.completed = c;
+  }
+
+  public toggleCompletion() {
+    this.setCompletion(!this.completed)
   }
 
 }
