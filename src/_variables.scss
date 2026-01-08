@@ -1,0 +1,30 @@
+$header-font: "Inter", sans-serif;
+$text-font: "Ubuntu Sans", sans-serif;
+$headers: (
+	"h1",
+	"h2",
+	"h3",
+	"h4",
+	"h5",
+	"h6",
+	".display-1",
+	".display-2",
+	".display-3",
+	".display-4"
+);
+
+$text-elems: (
+	"p",
+	"a",
+	"span",
+	"sub",
+	"sup",
+	".list-group-item"
+);
+
+$todo-status-color-mappings: (
+	"ok": #A9A9A9,
+	"important": #FF7518,
+	"urgent": #CC5500,
+	"completed": #228B22
+);
