@@ -1,6 +1,6 @@
 @use "../node_modules/bootstrap/scss/bootstrap.scss";
-@use "mixins.scss";
-@use "variables.scss";
+@use "mixins" as *;
+@use "variables" as *;
 
 @each $header in $headers {
 	#{$header} {

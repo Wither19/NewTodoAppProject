@@ -4,11 +4,13 @@ import TodoListItem from "./TodoListItem"
 type TodoListWrapperProps = { list: TodoItem[] }
 
 function TodoListWrapper({ list }: TodoListWrapperProps) {
-  return list.map(todo => (
-  <div className="todo-list-wrapper">
-      <TodoListItem todo={todo} />
-  </div>
-  ))
+  return ( 
+    <div className="todo-list-wrapper">
+      {list.map(todo => (
+        <TodoListItem todo={todo} />
+      ))}
+    </div>
+  )
 }
 
 export default TodoListWrapper
