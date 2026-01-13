@@ -108,3 +108,10 @@ export function getItemStatus(completed: boolean, date: Moment, options: TodoLis
 
 	return status
 }
+
+export function getDayOfWeek(date: Moment): string {
+	let DOWString = ""
+	const today = moment()
+
+	return DOWString
+}

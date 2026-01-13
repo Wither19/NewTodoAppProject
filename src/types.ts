@@ -13,7 +13,7 @@ export interface Todo {
 export interface TodoListOptions {
 	"thresholdForImportant": number,
 	"thresholdForUrgent": number
-};
+}
 
 export interface TodoListObj {
 	"todoList": Todo[]
