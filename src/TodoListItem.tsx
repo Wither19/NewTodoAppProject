@@ -7,21 +7,16 @@ type TodoListItemProps = {
 }
 
 function TodoListItem({ todo }: TodoListItemProps) {
-  const name = todo.getName()
-  const fullDate = todo.getFullDate()
-  const dow = todo.getDayOfWeek()
-  const status = todo.getStatus()
-  const completed = todo.getCompletion()
 
   return (
-    <Card className={`todo-list-item ${status}`} key={name}>
+    <Card className={`todo-list-item ${todo.getStatus() }`} key={todo.getName()}>
       <CardBody>
         <div>
-          <TodoListItemCheck checked={todo.toggleCompletion} completed={completed} />
+          <TodoListItemCheck todo={todo} />
         </div>
         <div>
-          <CardTitle>{name}</CardTitle>
-          <CardText>{fullDate} - {dow}</CardText>
+          <CardTitle>{todo.getName()}</CardTitle>
+          <CardText>{todo.getFullDate()} - {todo.getDayOfWeek()}</CardText>
         </div>
       </CardBody>
     </Card>

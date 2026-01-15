@@ -116,10 +116,12 @@ export function dayOfWeek(date: Moment) {
 	
 	const t = moment()
 
-	const diff = date.diff(t)
+	const diff = date.diff(t, "days")
 
 	if (t.isAfter(date)) {
+		if (diff < 7) {
 			w = "[Last] " + w
+		}
 	} else {
 			if (diff < 7) {
 				w = "[This] " + w
