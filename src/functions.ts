@@ -109,9 +109,22 @@ export function getItemStatus(completed: boolean, date: Moment, options: TodoLis
 	return status
 }
 
-export function getDayOfWeek(date: Moment): string {
-	let DOWString = ""
-	const today = moment()
+export function fullDate(date: Moment) {
+	return date.format("MM/DD/YYYY")
+}
 
-	return DOWString
+export function dayOfWeek(date: Moment) {
+	let w = ""
+	
+	const t = moment()
+
+	const diff = date.diff(t)
+
+	if (diff < 7) {
+		w = "This"
+	} else if (diff < 14) {
+		w = "Next"
+	} 
+
+	return w ? date.format(`[${w}] dddd`) : date.format("dddd")
 }

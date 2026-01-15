@@ -1,7 +1,7 @@
 import todoJSON from "./todo-sample.json"
 import { TodoItemStatus } from "./enums"
 import type { Todo } from "./types"
-import { getItemStatus } from "./functions"
+import { dayOfWeek, fullDate, getItemStatus } from "./functions"
 import moment from "moment"
 import type { Moment } from "moment"
 
@@ -16,7 +16,7 @@ export class TodoItem {
     this.completed = t.completed
 
     const d = moment(t.date, "MM-DD-YYYY")
-    this.date = d;
+    this.date = d
 
     const todoOptions = todoJSON.todoListOptions
 
@@ -32,20 +32,26 @@ export class TodoItem {
   }
 
   public getCompletion() {
-    return this.completed;
+    return this.completed
   }
 
   public getFullDate() {
-    return this.date.format("MM/DD/YYYY")
+    return fullDate(this.date)
+  }
+
+  public getDayOfWeek() {
+    return dayOfWeek(this.date)
   }
 
   public setCompletion(c: boolean = true) {
-    this.completed = c;
+    this.completed = c
   }
 
   public toggleCompletion() {
     this.setCompletion(!this.completed)
     alert(this.completed)
   }
+
+  
 
 }
