@@ -1,4 +1,4 @@
-import { CheckSquare, CheckSquareFill } from "react-bootstrap-icons"
+import { CheckSquareFill } from "react-bootstrap-icons"
 
 type TodoListItemCheckProps = {
   completed: boolean
@@ -6,9 +6,11 @@ type TodoListItemCheckProps = {
 }
 
 function TodoListItemCheck({ completed, checked }: TodoListItemCheckProps) {
+ return (
   <div className="todo-list-item-check" onClick={checked}>
-    {completed ? <CheckSquare /> : <CheckSquareFill fill={"#228B22"} />}
+    <CheckSquareFill fill={completed ? "green" : "#228B22"} />
   </div>
+ )
 }
 
 export default TodoListItemCheck

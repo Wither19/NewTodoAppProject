@@ -9,6 +9,7 @@ type TodoListItemProps = {
 function TodoListItem({ todo }: TodoListItemProps) {
   const name = todo.getName()
   const fullDate = todo.getFullDate()
+  const dow = todo.getDayOfWeek()
   const status = todo.getStatus()
   const completed = todo.getCompletion()
 
@@ -20,7 +21,7 @@ function TodoListItem({ todo }: TodoListItemProps) {
         </div>
         <div>
           <CardTitle>{name}</CardTitle>
-          <CardText>{fullDate}</CardText>
+          <CardText>{fullDate} - {dow}</CardText>
         </div>
       </CardBody>
     </Card>
