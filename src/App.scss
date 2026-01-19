@@ -3,6 +3,7 @@
 @use "variables" as *;
 
 @use "sass:color";
+@use "sass:string";
 
 @each $header in $headers {
 	#{$header} {
@@ -32,7 +33,8 @@
 		}
 
 		.todo-status-alert-text.#{$status} {
-			color: color.adjust(#{$status-color}, $darkness: 10%);
+			// color: color.adjust(string.quote($status-color), $darkness: 10%);
+			color: $status-color;
 		}
 	}
 }
