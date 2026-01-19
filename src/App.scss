@@ -2,6 +2,8 @@
 @use "mixins" as *;
 @use "variables" as *;
 
+@use "sass:color";
+
 @each $header in $headers {
 	#{$header} {
 		font-family: $header-font;
@@ -27,6 +29,10 @@
 	@each $status, $status-color in $todo-status-color-mappings {
 		&.#{$status} {
 			border-top: 4px solid #{$status-color};
+		}
+
+		.todo-status-alert-text.#{$status} {
+			color: color.adjust(#{$status-color}, $darkness: 10%);
 		}
 	}
 }

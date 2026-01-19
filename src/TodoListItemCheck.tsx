@@ -1,24 +1,15 @@
-import { useState } from "react"
-
 import { CheckSquareFill } from "react-bootstrap-icons"
-import type { TodoItem } from "./TodoItem"
 
 type TodoListItemCheckProps = {
-  todo: TodoItem
+  completed: boolean,
+  clickEvent: () => void
 }
 
-function TodoListItemCheck({ todo }: TodoListItemCheckProps) {
-
-  const [itemCompletion, setItemCompletion] = useState(todo.getCompletion())
-
-  const checkChangeHandle = () => {
-    todo.toggleCompletion()
-    setItemCompletion(todo.getCompletion())
-  };
+function TodoListItemCheck({ completed, clickEvent }: TodoListItemCheckProps) {
 
   return (
-  <div className="todo-list-item-check" onClick={checkChangeHandle}>
-    <CheckSquareFill fill={itemCompletion ? "#228B22" : "#ZA4358"} />
+  <div className="todo-list-item-check" onClick={clickEvent}>
+    <CheckSquareFill fill={completed ? "#228B22" : "#ZA4358"} />
   </div>
  )
 }
