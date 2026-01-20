@@ -26,7 +26,8 @@ export class TodoItem {
   }
 
   public getStatus() {
-    return getItemStatus(this.completed, this.date, todoJSON.todoListOptions)
+    this.status = getItemStatus(this.completed, this.date, todoJSON.todoListOptions)
+    return this.status
   }
 
   public getCompletion() {
