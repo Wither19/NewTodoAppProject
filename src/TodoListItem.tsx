@@ -13,12 +13,12 @@ function TodoListItem({ todo }: TodoListItemProps) {
   const [itemCompletion, setItemCompletion] = useState(todo.getCompletion())
   const [itemStatus, setItemStatus] = useState(todo.getStatus())
   
-    const checkChangeHandle = () => {
-      todo.toggleCompletion()
- 
-      setItemCompletion(todo.getCompletion())
-      setItemStatus(todo.getStatus())
-    };
+  function checkChangeHandle() {
+    todo.toggleCompletion()
+
+    setItemCompletion(todo.getCompletion())
+    setItemStatus(todo.getStatus())
+  }
 
   return (
     <Card className={`todo-list-item ${todo.getStatus() }`} key={todo.getName()}>
