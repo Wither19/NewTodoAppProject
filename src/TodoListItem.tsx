@@ -29,7 +29,7 @@ function TodoListItem({ todo }: TodoListItemProps) {
         </div>
         <div>
           <CardTitle>{todo.getName()}</CardTitle>
-          <CardText>{todo.getFullDate()} - {todo.getDayOfWeek()}</CardText>
+          <CardText>{`${todo.getFullDate()} - ${todo.getDayOfWeek()}`}</CardText>
         </div>
       </CardBody>
     </Card>
