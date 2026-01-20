@@ -23,7 +23,7 @@ function TodoListItem({ todo }: TodoListItemProps) {
   return (
     <Card className={`todo-list-item ${todo.getStatus() }`} key={todo.getName()}>
       <CardBody>
-        <div>
+        <div className="item-status-container">
           <TodoListItemCheck completed={itemCompletion} clickEvent={checkChangeHandle} />
           <TodoListStatusAlert status={itemStatus} />
         </div>

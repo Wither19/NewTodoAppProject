@@ -26,10 +26,16 @@
 	flex-basis: 25%;
 	transition: .45s border;
 	margin: 6px;
+
+	.item-status-container {
+		display: flex;
+		align-items: center;
+		margin-bottom: 2px;
+	}
 	
 	@each $status, $status-color in $todo-status-color-mappings {
 		&.#{$status} {
-			border-top: 4px solid #{$status-color};
+			border-top: 8px solid #{$status-color};
 		}
 
 		.todo-status-alert-text {
@@ -46,4 +52,5 @@
 .todo-list-item-check {
 	@include clickable;
 	width: fit-content;
+	margin-right: 12px;
 }
