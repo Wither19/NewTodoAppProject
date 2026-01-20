@@ -37,7 +37,7 @@
 			text-transform: capitalize;
 
 			&.#{$status} {
-				color: color.scale($status-color, $lightness: -20%);
+				color: color.adjust($status-color, $lightness: -7.5%);
 			}
 	}
 	}
@@ -45,4 +45,5 @@
 
 .todo-list-item-check {
 	@include clickable;
+	width: fit-content;
 }
