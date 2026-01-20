@@ -24,7 +24,7 @@
 
 .card.todo-list-item {
 	flex-basis: 25%;
-	transition: .75s border;
+	transition: .45s border;
 	margin: 6px;
 	
 	@each $status, $status-color in $todo-status-color-mappings {
@@ -32,10 +32,14 @@
 			border-top: 4px solid #{$status-color};
 		}
 
-		.todo-status-alert-text.#{$status} {
-			// color: color.adjust(string.quote($status-color), $darkness: 10%);
-			color: $status-color;
-		}
+		.todo-status-alert-text {
+			font-weight: 700;
+			text-transform: capitalize;
+
+			&.#{$status} {
+				color: color.scale($status-color, $lightness: -20%);
+			}
+	}
 	}
 }
 

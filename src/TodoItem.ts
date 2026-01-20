@@ -18,9 +18,7 @@ export class TodoItem {
     const d = moment(t.date, "MM-DD-YYYY")
     this.date = d
 
-    const todoOptions = todoJSON.todoListOptions
-
-    this.status = getItemStatus(this.completed, d, todoOptions)
+    this.status = getItemStatus(this.completed, d, todoJSON.todoListOptions)
   }
 
   public getName() {
@@ -28,7 +26,7 @@ export class TodoItem {
   }
 
   public getStatus() {
-    return this.status
+    return getItemStatus(this.completed, this.date, todoJSON.todoListOptions)
   }
 
   public getCompletion() {

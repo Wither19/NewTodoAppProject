@@ -5,7 +5,7 @@ type TodoListStatusAlertProps = {
 }
 
 function TodoListStatusAlert({ status }: TodoListStatusAlertProps) {
-  return <div className={`todo-status-alert-text ${status}`}></div>
+  return <div className={`todo-status-alert-text ${status}`}>{status}</div>
 }
 
 export default TodoListStatusAlert
