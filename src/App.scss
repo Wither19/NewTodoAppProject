@@ -45,12 +45,12 @@
 			&.#{$status} {
 				color: color.adjust($status-color, $lightness: -7.5%);
 			}
+		}
 	}
-	}
-}
 
-.todo-list-item-check {
-	@include clickable;
-	width: fit-content;
-	margin-right: 12px;
+	.todo-list-item-check {
+		@include clickable;
+		width: fit-content;
+		margin-right: 12px;
+	}
 }
