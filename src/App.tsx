@@ -1,8 +1,8 @@
-import "./App.scss"
+import "./styles/App.scss"
 import todoJSON from "./todo-sample.json"
-import { TodoItem } from "./TodoItem.ts"
+import { TodoItem } from "./classes/TodoItem.ts"
 
-import TodoListWrapper from "./TodoListWrapper.tsx"
+import TodoListWrapper from "./components/TodoListWrapper.tsx"
 
 import { useState } from "react"
 

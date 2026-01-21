@@ -1,4 +1,4 @@
-import { TodoItem } from "./TodoItem"
+import { TodoItem } from "../classes/TodoItem"
 import { Card, CardBody, CardTitle, CardText } from "react-bootstrap"
 import TodoListItemCheck from "./TodoListItemCheck"
 import { useState } from "react"

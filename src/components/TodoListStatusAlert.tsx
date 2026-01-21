@@ -1,4 +1,4 @@
-import type { TodoItemStatus } from "./enums"
+import type { TodoItemStatus } from "../enums"
 
 type TodoListStatusAlertProps = {
   status: TodoItemStatus

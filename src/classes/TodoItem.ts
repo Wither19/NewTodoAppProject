@@ -1,7 +1,7 @@
-import todoJSON from "./todo-sample.json"
-import { TodoItemStatus } from "./enums"
-import type { Todo } from "./types"
-import { dayOfWeek, fullDate, getItemStatus } from "./functions"
+import todoJSON from "../todo-sample.json"
+import { TodoItemStatus } from "../enums"
+import type { Todo } from "../types"
+import { dayOfWeek, fullDate, getItemStatus } from "../functions"
 import moment from "moment"
 import type { Moment } from "moment"
 
