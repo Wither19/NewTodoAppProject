@@ -1,22 +1,24 @@
 import "./styles/App.scss"
 import todoJSON from "./todo-sample.json"
-import { TodoItem } from "./classes/TodoItem.ts"
+import { TodoItem } from "./classes/TodoItem"
 
-import TodoListWrapper from "./components/TodoListWrapper.tsx"
+import TodoListWrapper from "./components/TodoListWrapper"
+import ItemAddButton from "./components/ItemAddButton"
+import ItemAddModal from "./components/ItemAddModal"
 
 import { useState } from "react"
 
 function App() {
-  const [todos, setTodos] = useState(todoJSON.todoList.map(todo => new TodoItem(todo)))
+  const [todos, _] = useState(todoJSON.todoList.map(todo => new TodoItem(todo)))
 
-  const addButtonClickHandle = () => {
-    
+  const modalCallback = (d: string) => {
+    alert(d)
   }
 
   return (
     <>
-        <ItemAddButton click={addButtonClickHandle} />
-        <ItemAddModal />
+        <ItemAddButton />
+        <ItemAddModal passFn={modalCallback} />
         <TodoListWrapper list={todos} />
     </>
   )
