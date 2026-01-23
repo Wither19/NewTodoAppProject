@@ -1,28 +1,26 @@
-import { Modal, ModalDialog, ModalHeader, ModalBody, ModalTitle, ModalFooter } from "react-bootstrap"
+import { Modal, ModalDialog, ModalHeader, ModalBody, ModalTitle, Button, ModalFooter } from "react-bootstrap"
 
 type ItemAddModalProps = {
-  passFn: (d: string) => void
+  adding: boolean,
+  passFn: (d: string) => void,
+  hideFn: () => void
 }
 
-function ItemAddModal({ passFn }: ItemAddModalProps) {
+function ItemAddModal({ adding, passFn, hideFn }: ItemAddModalProps) {
   return (
-  <Modal className="fade" id="item-add-modal" tabindex="-1">
+  <Modal show={adding}>
     <ModalDialog>
-      <div>
         <ModalHeader>
           <ModalTitle>Modal title</ModalTitle>
-          <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          
         </ModalHeader>
         <ModalBody>
-          <p>Modal body text goes here.</p>
+          <p>Add text.</p>
+          <input type="number" />
         </ModalBody>
         <ModalFooter>
-          <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" className="btn btn-primary" onSubmit={() => {
-            passFn("pootis")
-          }}>Save changes</button>
+          <Button variant="primary" onClick={hideFn}>Ok</Button>
         </ModalFooter>
-      </div>
     </ModalDialog>
   </Modal>
   )

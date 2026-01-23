@@ -1,5 +1,12 @@
-function ItemAddButton() {
-  return <button data-bs-toggle="modal" data-bs-target="#item-add-modal" type="button" className="btn btn-primary">Add New</button>
+import { Button } from "react-bootstrap"
+
+type ItemAddButtonProps = {
+  click: () => void,
+  adding: boolean
+}
+
+function ItemAddButton({ click, adding }: ItemAddButtonProps) {
+  return <Button variant={adding ? "outline-secondary" : "primary"} onClick={click}>Add New</Button>
 }
 
 export default ItemAddButton

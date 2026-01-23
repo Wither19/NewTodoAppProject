@@ -10,6 +10,15 @@ import { useState } from "react"
 
 function App() {
   const [todos, _] = useState(todoJSON.todoList.map(todo => new TodoItem(todo)))
+  const [addingItem, setAddingItem] = useState(false)
+
+  const modalShow = () => {
+    setAddingItem(true)
+  }
+
+  const modalHide = () => {
+    setAddingItem(false)
+  }
 
   const modalCallback = (d: string) => {
     alert(d)
@@ -17,8 +26,8 @@ function App() {
 
   return (
     <>
-        <ItemAddButton />
-        <ItemAddModal passFn={modalCallback} />
+        <ItemAddButton click={modalShow} adding={addingItem} />
+        <ItemAddModal adding={addingItem} passFn={modalCallback} hideFn={modalHide} />
         <TodoListWrapper list={todos} />
     </>
   )
