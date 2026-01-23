@@ -1,3 +1,5 @@
+import moment, { type Moment } from "moment"
+import { useState } from "react"
 import { Modal, ModalDialog, ModalHeader, ModalBody, ModalTitle, Button, ModalFooter } from "react-bootstrap"
 
 type ItemAddModalProps = {
@@ -7,6 +9,9 @@ type ItemAddModalProps = {
 }
 
 function ItemAddModal({ adding, passFn, hideFn }: ItemAddModalProps) {
+
+  const [date, setDate] = useState<Moment>(moment())
+
   return (
   <Modal show={adding}>
     <ModalDialog>
@@ -16,7 +21,9 @@ function ItemAddModal({ adding, passFn, hideFn }: ItemAddModalProps) {
         </ModalHeader>
         <ModalBody>
           <p>Add text.</p>
-          <input type="number" />
+          <input type="date" onChange={e => {
+            setDate(moment(e.target.valueAsDate))
+          }} />
         </ModalBody>
         <ModalFooter>
           <Button variant="primary" onClick={hideFn}>Ok</Button>
