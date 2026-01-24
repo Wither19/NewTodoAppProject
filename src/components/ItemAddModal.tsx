@@ -11,6 +11,9 @@ type ItemAddModalProps = {
 function ItemAddModal({ adding, passFn, hideFn }: ItemAddModalProps) {
 
   const [date, setDate] = useState<Moment>(moment())
+  const dateChangeHandle = (e) => {
+    setDate(moment(e.target.valueAsDate))
+  }
 
   return (
   <Modal show={adding}>
@@ -21,9 +24,7 @@ function ItemAddModal({ adding, passFn, hideFn }: ItemAddModalProps) {
         </ModalHeader>
         <ModalBody>
           <p>Add text.</p>
-          <input type="date" onChange={e => {
-            setDate(moment(e.target.valueAsDate))
-          }} />
+          <input type="date" onChange={dateChangeHandle} />
         </ModalBody>
         <ModalFooter>
           <Button variant="primary" onClick={hideFn}>Ok</Button>
