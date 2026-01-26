@@ -1,5 +1,5 @@
 import moment, { type Moment } from "moment"
-import { useState } from "react"
+import { useState, type ChangeEvent } from "react"
 import { Modal, ModalDialog, ModalHeader, ModalBody, ModalTitle, Button, ModalFooter } from "react-bootstrap"
 
 type ItemAddModalProps = {
@@ -11,7 +11,8 @@ type ItemAddModalProps = {
 function ItemAddModal({ adding, passFn, hideFn }: ItemAddModalProps) {
 
   const [date, setDate] = useState<Moment>(moment())
-  const dateChangeHandle = (e) => {
+  
+  const dateChangeHandle = (e: ChangeEvent<HTMLInputElement>) => {
     setDate(moment(e.target.valueAsDate))
   }
 
