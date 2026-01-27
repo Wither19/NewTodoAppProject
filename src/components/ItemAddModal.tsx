@@ -16,19 +16,23 @@ function ItemAddModal({ adding, passFn, hideFn }: ItemAddModalProps) {
     setDate(moment(e.target.valueAsDate))
   }
 
+  const todoItemSubmitHandle = () => {
+    passFn(date.toString())
+    hideFn()
+  }
+
   return (
   <Modal show={adding}>
     <ModalDialog>
         <ModalHeader>
           <ModalTitle>Modal title</ModalTitle>
-          
         </ModalHeader>
         <ModalBody>
-          <p>Add text.</p>
           <input type="date" onChange={dateChangeHandle} />
         </ModalBody>
         <ModalFooter>
-          <Button variant="primary" onClick={hideFn}>Ok</Button>
+          <Button variant="outline-secondary" onClick={hideFn}>Cancel</Button>
+          <Button variant="primary" onSubmit={todoItemSubmitHandle}>Ok</Button>
         </ModalFooter>
     </ModalDialog>
   </Modal>
