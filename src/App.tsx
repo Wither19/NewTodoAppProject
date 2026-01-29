@@ -15,16 +15,25 @@ function App() {
   const [addingItem, setAddingItem] = useState(false)
   const [newTodoDate, setNewTodoDate] = useState<Moment | undefined>(undefined)
 
+  const showModal = () => {
+    setAddingItem(true)
+  }
+
+  const hideModal = () => {
+    setAddingItem(false)
+  }
+
   const modalCallback = (d: string) => {
     setNewTodoDate(moment(d))
+
     alert(newTodoDate?.day)
-    setAddingItem(false);
+    hideModal()
   }
 
   return (
     <>
-        <ItemAddButton click={() => setAddingItem(true)} adding={addingItem} />
-        <ItemAddModal adding={addingItem} passFn={modalCallback} hideFn={() => setAddingItem(false)} />
+        <ItemAddButton click={showModal} adding={addingItem} />
+        <ItemAddModal adding={addingItem} passFn={modalCallback} hideFn={hideModal} />
         <TodoListWrapper list={todos} />
     </>
   )
