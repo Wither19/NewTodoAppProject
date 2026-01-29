@@ -7,7 +7,7 @@ function TodoListWrapper({ list }: TodoListWrapperProps) {
   return ( 
     <div className="todo-list-wrapper">
       {list.map(todo => (
-        <TodoListItem todo={todo} />
+        <TodoListItem key={`todo-item-${todo.getName()}`} todo={todo} />
       ))}
     </div>
   )

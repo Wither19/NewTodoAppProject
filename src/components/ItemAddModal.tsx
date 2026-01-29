@@ -11,7 +11,6 @@ type ItemAddModalProps = {
 function ItemAddModal({ adding, passFn, hideFn }: ItemAddModalProps) {
 
   const [date, setDate] = useState<Moment>(moment())
-  const [currentlyAdding, setAdding] = useState(adding)
   
   const dateChangeHandle = (e: ChangeEvent<HTMLInputElement>) => {
     setDate(moment(e.target.valueAsDate))
@@ -19,11 +18,10 @@ function ItemAddModal({ adding, passFn, hideFn }: ItemAddModalProps) {
 
   const todoItemSubmitHandle = () => {
     passFn(date.toString())
-    setAdding(false)
   }
 
   return (
-  <Modal show={currentlyAdding}>
+  <Modal show={adding}>
     <ModalDialog>
         <ModalHeader>
           <ModalTitle>Modal title</ModalTitle>
