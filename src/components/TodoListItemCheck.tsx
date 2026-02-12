@@ -9,7 +9,7 @@ function TodoListItemCheck({ completed, clickEvent }: TodoListItemCheckProps) {
 
   return (
   <div className="todo-list-item-check" onClick={clickEvent}>
-      <CheckSquareFill fill={completed ? "#228b22" : "#676767"} />
+      <CheckSquareFill fill={completed ? "#228b22" : "#bababa"} />
   </div>
  )
 }
