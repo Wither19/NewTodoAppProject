@@ -5,11 +5,13 @@
 @use "sass:color";
 @use "sass:string";
 
+// Applying custom font to all header elems
 @each $header in $headers {
 	#{$header} {
 		@include use-header-font;
 	}
 }
+
 
 @each $text in $text-elems {
 	#{$text} {

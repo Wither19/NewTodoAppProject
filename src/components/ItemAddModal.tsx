@@ -10,14 +10,20 @@ type ItemAddModalProps = {
 
 function ItemAddModal({ adding, passFn, hideFn }: ItemAddModalProps) {
 
-  const [date, setDate] = useState<Moment>(moment())
+  const [taskName, setTaskName] = useState("")
+  const [date, setDate] = useState(moment())
   
+  const taskNameChangeHandle = (e: ChangeEvent<HTMLInputElement>) => {
+    setTaskName(e.target.value);
+  }
+
   const dateChangeHandle = (e: ChangeEvent<HTMLInputElement>) => {
     setDate(moment(e.target.valueAsDate))
   }
 
   const todoItemSubmitHandle = () => {
     passFn(date.toString())
+    alert("ping")
   }
 
   return (
@@ -27,6 +33,7 @@ function ItemAddModal({ adding, passFn, hideFn }: ItemAddModalProps) {
           <ModalTitle>Modal title</ModalTitle>
         </ModalHeader>
         <ModalBody>
+          <input type="text" onChange={taskNameChangeHandle} />
           <input type="date" onChange={dateChangeHandle} />
         </ModalBody>
         <ModalFooter>
