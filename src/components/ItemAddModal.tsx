@@ -12,9 +12,9 @@ function ItemAddModal({ adding, passFn, hideFn }: ItemAddModalProps) {
 
   const [taskName, setTaskName] = useState("")
   const [date, setDate] = useState(moment())
-  
+
   const taskNameChangeHandle = (e: ChangeEvent<HTMLInputElement>) => {
-    setTaskName(e.target.value);
+    setTaskName(e.target.value)
   }
 
   const dateChangeHandle = (e: ChangeEvent<HTMLInputElement>) => {
@@ -27,8 +27,8 @@ function ItemAddModal({ adding, passFn, hideFn }: ItemAddModalProps) {
   }
 
   return (
-  <Modal show={adding}>
-    <ModalDialog>
+    <Modal show={adding}>
+      <ModalDialog>
         <ModalHeader>
           <ModalTitle>Modal title</ModalTitle>
         </ModalHeader>
@@ -40,8 +40,8 @@ function ItemAddModal({ adding, passFn, hideFn }: ItemAddModalProps) {
           <Button variant="outline-secondary" onClick={hideFn}>Cancel</Button>
           <Button variant="primary" onSubmit={todoItemSubmitHandle}>Ok</Button>
         </ModalFooter>
-    </ModalDialog>
-  </Modal>
+      </ModalDialog>
+    </Modal>
   )
 }
 
